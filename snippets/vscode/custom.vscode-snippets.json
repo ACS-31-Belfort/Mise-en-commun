@@ -5,7 +5,13 @@
     // used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
     // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
     // Placeholders with the same ids are connected.
-    // Example:
+
+    "Barre after pseudo-element" : {
+        "scope": "css, scss",
+        "prefix": "barafter",
+        "body" : "\tposition: absolute;\n\tcontent: '${1: }';\n\twidth: ${2:30}%;\n\theight: ${3:2}px;\n\tbackground: rgb(${4:60,60,60});\n\tleft: ${5:0};\n\tbottom: ${6:-5}px;\n\t",
+    },
+
     "Print to console": {
     	"scope": "javascript,typescript",
     	"prefix": "log",
@@ -14,9 +20,16 @@
     		"$2"
     	],
     	"description": "Log output to console"
-    },                         
+    },
+    "Test atelier": {
+        "scope": "css",
+        "prefix": "flexstart",
+        "body": "display: flex;\nalign-items:flex-start;\njustify-content:flex-start;\n$1",
+        "description": "display flex and flex start",
+    },
+
     "PHP opener": {
-        "scope": "html,twig,php",
+        "scope": "html,php",
         "prefix": "php",
         "body": [
             "<?php $1 ?>"
