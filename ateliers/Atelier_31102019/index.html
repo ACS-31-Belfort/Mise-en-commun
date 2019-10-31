@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Atelier Jeudi 31/10</title>
+</head>
+<body>
+  
+  <h1>Ordre du jour : Fonctions, types de variables, boucles et conditions</h1>
+  <h2 id="h2">F.A.Q</h2>
+  <h3>
+    Question 1 :<br>
+    Johnny : A quel moment utiliser getElement... ou querySelector ?
+  </h3>
+  <h4>
+    querySelector est plus récent que getElement.<br>
+    querySelector est totalement flexible.<br>
+    - getElementById retourne TOUJOURS une seule valeur, l'élément HTML avec l'id renseigné.<br>
+    - getElementsByClassName retourne TOUJOURS un tableau, composé des éléments HTML qui possède la classe en question.<br>
+    - querySelector retourne UN SEUL élément, le 1er qui correspond à la requête.<br>
+    Exemple : querySelector("#section1 .container h2") retourne le 1er h2 qui est dans un container qui est lui-même dans la section 1.<br>
+    - querySelectorAll retourne TOUS les éléments qui correspondent à la requête dans un tableau (même s'il n'y a qu'un seul élément !)<br>
+  </h4>
+  <br><br>
+  <h3>
+      Question 2 :<br>
+      Arnaud : Comment marche "console.log" ?
+    </h3>
+    <h4>
+      console.log écrit dans la console du navigateur. Si entre une fonction dans le .log, il écrira le résultat de la fonction, si on entre du texte, il écrira le texte, etc. 
+      Attention : le code s'exécute même si on fait console.log(code);
+    </h4>
+    <br><br>
+  <h3>
+      Question 3 :<br>
+      Johnny : Quand utiliser var, let et const?
+    </h3>
+    <h4>
+      var existait avant let et const, let et const sont plus précis.
+      Const permet déclarer une "variable" constante.
+      Let est une variable dont la valeur peut être ré-assignée
+    </h4>
+    <br><br>
+  <h3>
+      Question 4 :<br>
+      Arnaud : Qu'est-ce que parseInt ?
+    </h3>
+    <h4>
+        La fonction parseInt() analyse une chaîne de caractère fournie en argument et renvoie un entier exprimé dans une base donnée.
+    </h4>
+
+    <h2 id="oui">Types de variables</h2>
+    <h3>
+      Il existe plusieurs types de variable. Par exemple ; number, string, boolean, array, objets.
+      <pre>
+          let texte = "";
+          les guillemets permettent de créer un string
+      </pre>
+      <pre>
+          let number = 50;
+          Si on écrit juste un entier, la variable sera de type number.
+      </pre>
+      <pre>
+          let boolean = true;
+          Si on écrit juste true ou false, ça crée un boolean.
+      </pre>
+      <pre>
+          let array = [];
+          Les crochets permettent de déclarer un tableau.
+      </pre>
+      <pre>
+          let objet = {};
+          Les accolades permettent de déclarer un objet.
+      </pre>
+      Les différents types ne peuvent pas être comparés correctement dans les if.
+    </h3>
+
+    <h2>Fonctions</h2>
+    <h3>
+      une fonction doit d'abord être définie, puis ensuite appelée.<br>
+      On définit la fonction avec le mot-clé "function".<br>
+      On lui donne ensuite un nom (exemple: function maFonction)<br>
+      Puis éventuellement des paramètres, et enfin, on met le code à exécuter entre accolades.
+    </h3>
+
+    <h2>Boucles</h2>
+    <h3>
+      <pre>
+        
+for (let i = 0; i < pre.length; i++) {
+  console.log(pre[i].innerHTML);
+}
+      </pre>
+    </h3>
+
+    <h2>Conditions</h2>
+    <h3>
+      <pre>
+        lol
+      </pre>
+    </h3>
+    
+    
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
