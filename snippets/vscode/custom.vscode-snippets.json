@@ -100,4 +100,20 @@
         ],
         "description": "Creates an event listener for a list of triggers"
     },
+    "query" : {
+		"scope": "php, html",
+		"prefix": "pdoquery",
+		"body": [
+			"$${1:$query} = $${2:$bdd}->query(\"${3:SELECT * FROM table WHERE 1}\");\n$${4:result} = $${1:query}->fetchAll();\n$5"
+		],
+		"description": "crée une requête 'query' et fetchAll le résultat"
+    },
+    "prepare/execute" : {
+		"scope": "php, html",
+		"prefix": "pdoprepare",
+		"body": [
+			"$${1:$query} = $${2:$bdd}->prepare(\"${3:SELECT * FROM table WHERE id = :id}\");\n$${1:query}->execute([\":id\" => $${4:id}]);\n$${5:results} = $${1:query}->fetchAll();\n$6",
+		],
+		"description": "crée une requête 'prepare et execute'",
+	},
 }
