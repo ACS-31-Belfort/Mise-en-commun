@@ -1,6 +1,6 @@
 <?php
 
-class Home extends Controller
+class HomeController extends Controller
 {
 
     private $name = "Home";
@@ -9,8 +9,8 @@ class Home extends Controller
         return $this->name;
     }
 
-    public function write(String $message)
+    public function index()
     {
-        echo $message;
+        echo "Hello from Home controller";
     }
 }

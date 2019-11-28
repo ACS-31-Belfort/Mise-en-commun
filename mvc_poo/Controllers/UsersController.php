@@ -1,16 +1,24 @@
 <?php
 
-class Users extends Controller
+class UsersController extends Controller
 {
+    private $args;
+    private $model;
 
-    private $name = "Users";
-
-    public function getCtName(){
-        return $this->name;
+    public function __construct(){
+        return $this->model = new HomeModel();
     }
 
-    public function write(String $message)
+    public function index()
     {
-        echo $message;
+        var_dump($this->model->getAllUsers());
     }
+
+    public function delete()
+    {
+        $this->args = func_get_args();
+        var_dump($this->args);
+        echo "delete 1 user";
+    }
+
 }

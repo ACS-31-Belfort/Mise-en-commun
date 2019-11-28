@@ -9,43 +9,42 @@ class App {
         if(isset($_GET['url'])){
             $tokens = explode('/', rtrim($_GET['url'], '/'));
             //2A. controller
-            $controller = ucfirst(array_shift($tokens));
-            if(file_exists('Controllers/'.$controller.'Controller.php')){
-                $controller = new $controller;
+            $controllerName = ucfirst(array_shift($tokens));
+            if(file_exists('Controllers/'.$controllerName.'Controller.php')){
+                $controllerClass = $controllerName . 'Controller';
+                $controller = new $controllerClass;
                 //2B. Method if tokens is not empty
                 if(!empty($tokens)){
                     $method = array_shift($tokens);
                     if(method_exists($controller, $method)){
-                        echo "method used : " . $method;
                         //2C. parameters
-                        $controller->{$method}(@$tokens);
+                        $controller->$method($tokens);
                     }
+                    //wrong method; call 404 with method name
                     else{
-                        //method not found... calling index() instead;
-                        echo "method not found... Calling index() from Controller class instead.<br>";
-                        $controller->index('Home');
+                        $controllerClass = "NotFoundController";
+                        $notfound = new $controllerClass();
+                        $notfound->displayErrorMessage($method, true);
                     }
                 }
+                //tokens is empty (no method specified), method called: index()
                 else{
-                    //tokens is empty (no method specified), method called: index()
-                    echo "no method specified... Calling index() from Controller class instead.<br>";
-                    $controller->index($controller->getCtName());
+                    $controller->index();
                 }
             }
+            //controller not found; call 404 controller name.
             else{
-                //controller not found; call home controller.
-                echo "Controller not found... Calling Home controller and index() method instead.<br>";
-                $controller = 'home';
-                $controller = new $controller;
-                $controller->index('Home');
+                $requestedControllerName = $controllerName;
+                $controllerClass = 'NotFoundController';
+                $notfound = new $controllerClass;
+                $notfound->displayErrorMessage($requestedControllerName, false);
             }
         }
+        //no url has been passed, calling home controller
         else{
-            //no url has been passed, calling home controller
-            echo "no url parsed... Calling Home controller and index() method instead.<br>";
-            $controller = 'home';
-            $controller = new $controller();
-            $controller->index('Home');
+            $controllerClass = 'HomeController';
+            $home = new $controllerClass();
+            $home->index();
         }
     }
 }
