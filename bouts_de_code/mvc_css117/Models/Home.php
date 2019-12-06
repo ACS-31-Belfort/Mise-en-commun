@@ -1,6 +1,11 @@
 <?php
 
-require('connexion.php');
+require('env.php');
+
+$options = [
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+];
+$dbh = new PDO('mysql:host='.$host.';dbname='.$dbname, $user, $pass, $options);
 
 //Function returning all columns from a table in your database.
 function getAllRepos(){
