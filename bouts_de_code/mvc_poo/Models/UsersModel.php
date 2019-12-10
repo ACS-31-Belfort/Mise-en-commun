@@ -13,4 +13,10 @@ class UsersModel extends Db {
         return $stmt->fetchAll();
     }
 
+    public function getOneUser($id){
+        $stmt = $this->dbh->prepare('SELECT * FROM users where users.id = ?');
+        $stmt->execute([$id]);
+        return $stmt->fetchAll();
+    }
+    
 }
