@@ -1,16 +1,12 @@
 <?php
 
-class Home extends Controller
+class HomeController extends Controller
 {
 
-    private $name = "Home";
+    protected $name = "Home";
 
-    public function getCtName(){
-        return $this->name;
-    }
-
-    public function write(String $message)
+    public function index()
     {
-        echo $message;
+        $this->render("home/index");
     }
 }
