@@ -18,7 +18,9 @@ class App {
                     if(method_exists($controller, $method)){
                         echo "method used : " . $method;
                         //2C. parameters
+                        var_dump(func_get_args($controller->$method()));
                         $controller->{$method}(@$tokens);
+                        
                     }
                     else{
                         //method not found... calling index() instead;
