@@ -2,7 +2,7 @@
 
 class Env {
 
-    private static $filename = "./core/env.json";
+    private static $filename = "./core/resources/env.json";
 
     private static function getEnv(){
         return json_decode(file_get_contents(self::$filename));

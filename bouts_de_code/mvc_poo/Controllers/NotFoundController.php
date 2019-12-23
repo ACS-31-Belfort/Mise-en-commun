@@ -3,13 +3,10 @@
 class NotFoundController extends Controller
 {
 
-    public function displayErrorMessage(String $file, Bool $isMethod)
-    {
-        if($isMethod){
-            echo "404 : Method not found. You requested: " . $file;
-        }
-        else{
-            echo "404 : Controller not found. Your requested: " . $file;
-        }
-    }
+  protected $name = "Not Found";
+
+  public function displayErrorMessage(String $message)
+  {
+    echo "404 : " . $message;
+  }
 }

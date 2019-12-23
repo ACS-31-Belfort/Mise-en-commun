@@ -18,5 +18,4 @@ class UsersModel extends Db {
         $stmt->execute([$id]);
         return $stmt->fetchAll();
     }
-    
 }
