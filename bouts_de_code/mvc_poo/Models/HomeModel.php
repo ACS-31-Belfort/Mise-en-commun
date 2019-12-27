@@ -2,10 +2,9 @@
 
 class HomeModel extends Db {
 
-    private $conn;
+    private $dbh;
 
     public function __construct(){
-        $this->conn = Db::connect();
+        $this->dbh = Db::connect();
     }
-
 }

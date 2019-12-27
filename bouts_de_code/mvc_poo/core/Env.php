@@ -7,6 +7,7 @@ class Env {
     private static function getEnv(){
         return json_decode(file_get_contents(self::ENV_FILE));
     }
+
     public static function getHost(){
         return self::getEnv()->host;
     }
@@ -19,6 +20,7 @@ class Env {
     public static function getPass(){
         return self::getEnv()->pass;
     }
+    
     public static function baseUrl(){
       return self::getEnv()->base_url;
     }

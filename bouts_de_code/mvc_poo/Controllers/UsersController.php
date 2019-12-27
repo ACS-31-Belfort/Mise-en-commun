@@ -21,10 +21,15 @@ class UsersController extends Controller
 
   public function show()
   {
-    // ignores other arguments. First one is assumed to be id of user.
-    $this->args = (int) func_get_args()[0];
-    $data = $this->model->getOneUser($this->args);
-    $this->render('users/show', $data);
+    // ignores other arguments. First one is assumed to be id of user, ignores others
+    $this->args = (int) func_get_args()[0][0];
+    if($data = $this->model->getOneUser($this->args)){
+      $this->render('users/show', $data);
+    }
+    else{
+      $data = $this->args;
+      $this->render('users/notfound', $data);
+    }
   }
 
   public function delete()
