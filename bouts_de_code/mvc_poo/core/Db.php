@@ -1,5 +1,4 @@
 <?php 
-
 class Db {
 
     private static $options = [
@@ -15,5 +14,4 @@ class Db {
         }
         return $dbh;
     }
-
 }

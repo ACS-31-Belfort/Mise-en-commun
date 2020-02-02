@@ -1,11 +1,17 @@
 <?php
 
-class Env {
+abstract class Env {
 
     private const ENV_FILE = "./core/resources/env.json";
+    private const LOCAL_ENV_FILE = "./core/resources/env.local.json";
 
     private static function getEnv(){
+      if(file_exists(self::LOCAL_ENV_FILE)){
+        return json_decode(file_get_contents(self::LOCAL_ENV_FILE));
+      }
+      else{
         return json_decode(file_get_contents(self::ENV_FILE));
+      }
     }
 
     public static function getHost(){

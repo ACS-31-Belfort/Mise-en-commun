@@ -1,3 +1,7 @@
 <?php 
 
-echo "Hello from home view";
+var_dump(Env::baseUrl());
+
+?>
+
+<h1>Salut !</h1>
