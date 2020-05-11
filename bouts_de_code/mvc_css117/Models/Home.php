@@ -2,10 +2,10 @@
 
 require('env.php');
 
-//Uncomment the section below to connect to database, once env.php has been filled.
-//$dbh = new PDO('mysql:host='. $host .';dbname='. $dbname, $user, $pass);
-//$dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, true);
-
+$options = [
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+];
+$dbh = new PDO('mysql:host='.$host.';dbname='.$dbname, $user, $pass, $options);
 
 //Function returning all columns from a table in your database.
 function getAllRepos(){
